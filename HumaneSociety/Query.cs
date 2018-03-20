@@ -138,6 +138,8 @@ namespace HumaneSociety
             
         }
 
+
+
         internal static void EnterUpdate(Animal animal, Dictionary<int, string> updates)
         {
             HumaneSocietyDataContext db = new HumaneSocietyDataContext();
@@ -177,26 +179,34 @@ namespace HumaneSociety
 
         }
 
-        internal static void UpdateCategory(Animal animal, int value)
+        internal static void UpdateCategory(Animal animal, string value)
         {
             HumaneSocietyDataContext db = new HumaneSocietyDataContext();
 
-            Breed dbAnimal = (from row in db.Breeds
-                               where row.ID == animal.ID
-                               select row).First();
+            Breed dbBreed = (from row in db.Breeds
+                             where row.ID == animal.ID
+                             select row).First();
 
-            dbAnimal.catagory = value;
+            int category = 0;
+            var isValidCategory = int.TryParse(value, out category);
+            if (isValidCategory)
+            {
+                dbBreed.catagory = category;
+                db.SubmitChanges();
+            }
+
         }
 
         internal static void UpdateBreed(Animal animal, string value)
         {
             HumaneSocietyDataContext db = new HumaneSocietyDataContext();
 
-            Breed dbAnimal = (from row in db.Breeds
-                              where row.ID == animal.ID
-                              select row).First();
+            Breed dbBreed = (from row in db.Breeds
+                             where row.ID == animal.ID
+                             select row).First();
+            dbBreed.breed1 = value;
+            db.SubmitChanges();
 
-            dbAnimal.breed1 = value;
         }
 
         internal static void UpdateName(Animal animal, string value)
@@ -211,7 +221,7 @@ namespace HumaneSociety
             db.SubmitChanges();
         }
 
-        internal static void UpdateAge(Animal animal, int value)
+        internal static void UpdateAge(Animal animal, string value)
         {
             HumaneSocietyDataContext db = new HumaneSocietyDataContext();
 
@@ -219,7 +229,7 @@ namespace HumaneSociety
                                where row.ID == animal.ID
                                select row).First();
 
-            dbAnimal.age = value;
+            dbAnimal.age = Int32.Parse(value);
             db.SubmitChanges();
         }
         
@@ -235,7 +245,7 @@ namespace HumaneSociety
             db.SubmitChanges();
         }
 
-        internal static void UpdateKidFriendly(Animal animal, bool value)
+        internal static void UpdateKidFriendly(Animal animal, string value)
         {
             HumaneSocietyDataContext db = new HumaneSocietyDataContext();
 
@@ -243,11 +253,11 @@ namespace HumaneSociety
                                where row.ID == animal.ID
                                select row).First();
 
-            dbAnimal.kidFriendly = value;
+            dbAnimal.kidFriendly = UserInterface.GetBitData(value);
             db.SubmitChanges();
         }
 
-        internal static void UpdatePetFriendly(Animal animal, bool value)
+        internal static void UpdatePetFriendly(Animal animal, string value)
         {
             HumaneSocietyDataContext db = new HumaneSocietyDataContext();
 
@@ -255,21 +265,45 @@ namespace HumaneSociety
                                where row.ID == animal.ID
                                select row).First();
 
-            dbAnimal.petFriendly = value;
+            dbAnimal.petFriendly = UserInterface.GetBitData(value);
             db.SubmitChanges();
         }
 
-        internal static void UpdateWeight(Animal animal, int value)
+        internal static void UpdateWeight(Animal animal, string value)
         {
             HumaneSocietyDataContext db = new HumaneSocietyDataContext();
 
             Animal dbAnimal = (from row in db.Animals
                                where row.ID == animal.ID
                                select row).First();
-
-            dbAnimal.weight = value;
+            
+            dbAnimal.weight = Int32.Parse(value);
             db.SubmitChanges();
         }
+
+        internal static object GetShots(Animal animal)
+        {//retrives shot information, in junction table 
+            ////use animal, get junction table, get shots table 
+            //for each item in shots, return shot
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+            AnimalShotJunction asj = new AnimalShotJunction();
+            Shot shot = new Shot();
+
+            //select all shots from a given animal
+            //given animalID, find all shot ID's
+            var query = (from entry in db.Animals
+                         where entry.ID == asj.Animal_ID
+                         where asj.Shot_ID == shot.ID
+                         orderby asj.dateRecieved
+                         select shot.name).First();
+            return query;
+        }
+
+        internal static void UpdateShot(string v, Animal animal)
+        {
+            throw new NotImplementedException();
+        }
+
     }
-    }
+}
 

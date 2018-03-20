@@ -56,7 +56,7 @@
         <elementListCompartment Id="07e0ed7c-3fca-46e8-96ce-8a142d02bafe" absoluteBounds="3.515, 9.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="dbf7f452-7d86-43e0-8b74-7a7cd27d2270" absoluteBounds="6.25, 7.875, 2, 1.1939925130208335">
+    <classShape Id="dbf7f452-7d86-43e0-8b74-7a7cd27d2270" absoluteBounds="6.25, 7.875, 2, 1.1939925130208344">
       <DataClassMoniker Name="/HumaneSocietyDataContext/Shot" />
       <nestedChildShapes>
         <elementListCompartment Id="a0f4ddec-ccbc-45a7-bc42-5b9659379a51" absoluteBounds="6.265, 8.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
