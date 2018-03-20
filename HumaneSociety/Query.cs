@@ -137,6 +137,139 @@ namespace HumaneSociety
             }
             
         }
+
+        internal static void EnterUpdate(Animal animal, Dictionary<int, string> updates)
+        {
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+
+            foreach (int entry in updates.Keys)
+            {
+                switch(entry)
+                {
+                    case 1:
+                        UpdateCategory(animal, updates[1]);
+                        break;
+                    case 2:
+                        UpdateBreed(animal, updates[2]);
+                        break;
+                    case 3:
+                        UpdateName(animal, updates[3]);
+                        break;
+                    case 4:
+                        UpdateAge(animal, updates[4]);
+                        break;
+                    case 5:
+                        UpdateDemeanor(animal, updates[5]);
+                        break;
+                    case 6:
+                        UpdateKidFriendly(animal, updates[6]);
+                        break;
+                    case 7:
+                        UpdatePetFriendly(animal, updates[7]);
+                        break;
+                    case 8:
+                        UpdateWeight(animal, updates[8]);
+                        break;
+                }
+
+
+            }
+
+        }
+
+        internal static void UpdateCategory(Animal animal, int value)
+        {
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+
+            Breed dbAnimal = (from row in db.Breeds
+                               where row.ID == animal.ID
+                               select row).First();
+
+            dbAnimal.catagory = value;
+        }
+
+        internal static void UpdateBreed(Animal animal, string value)
+        {
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+
+            Breed dbAnimal = (from row in db.Breeds
+                              where row.ID == animal.ID
+                              select row).First();
+
+            dbAnimal.breed1 = value;
+        }
+
+        internal static void UpdateName(Animal animal, string value)
+        {
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+            
+            Animal dbAnimal = (from row in db.Animals
+                               where row.ID == animal.ID
+                               select row).First();
+
+            dbAnimal.name = value;
+            db.SubmitChanges();
+        }
+
+        internal static void UpdateAge(Animal animal, int value)
+        {
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+
+            Animal dbAnimal = (from row in db.Animals
+                               where row.ID == animal.ID
+                               select row).First();
+
+            dbAnimal.age = value;
+            db.SubmitChanges();
+        }
+        
+        internal static void UpdateDemeanor(Animal animal, string value)
+        {
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+
+            Animal dbAnimal = (from row in db.Animals
+                               where row.ID == animal.ID
+                               select row).First();
+
+            dbAnimal.demeanor = value;
+            db.SubmitChanges();
+        }
+
+        internal static void UpdateKidFriendly(Animal animal, bool value)
+        {
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+
+            Animal dbAnimal = (from row in db.Animals
+                               where row.ID == animal.ID
+                               select row).First();
+
+            dbAnimal.kidFriendly = value;
+            db.SubmitChanges();
+        }
+
+        internal static void UpdatePetFriendly(Animal animal, bool value)
+        {
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+
+            Animal dbAnimal = (from row in db.Animals
+                               where row.ID == animal.ID
+                               select row).First();
+
+            dbAnimal.petFriendly = value;
+            db.SubmitChanges();
+        }
+
+        internal static void UpdateWeight(Animal animal, int value)
+        {
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+
+            Animal dbAnimal = (from row in db.Animals
+                               where row.ID == animal.ID
+                               select row).First();
+
+            dbAnimal.weight = value;
+            db.SubmitChanges();
+        }
     }
     }
 
