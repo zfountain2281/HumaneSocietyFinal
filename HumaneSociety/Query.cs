@@ -72,15 +72,44 @@ namespace HumaneSociety
                         where place.name == location
                         select place.ID).First();
             return query;
-            //room db
-            //name column
-            //building column
         }
 
         internal static void AddAnimal(Animal animal)
         {
-            //needs to add the newly user created animal to the DB
-            throw new NotImplementedException();
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+            db.Animals.InsertOnSubmit(animal);
         }
+
+        internal static void RemoveAnimal(Animal animal)
+        {
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+            db.Animals.DeleteOnSubmit(animal);
+        }
+
+        internal static Employee EmployeeLogin(string userName, string password)
+        {
+            //retrieves and returns matching employee at given userName and password
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+
+            var query = (from employee in db.Employees
+                         where employee.userName == userName
+                         where employee.pass == password
+                         select employee).First();
+            return query;
+        }
+
+        internal static Employee RetrieveEmployeeUser(string email, int employeeNumber)
+        {
+            //returns a given user from the DB
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+
+            var query = (from employee in db.Employees
+                         where employee.email == email
+                         where employee.employeeNumber == employeeNumber
+                         select employee).First();
+            return query;
+        }
+
+    }
     }
 }

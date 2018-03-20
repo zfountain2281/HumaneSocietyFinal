@@ -265,8 +265,8 @@ namespace HumaneSociety
             try
             {
                 Console.Clear();
-                employee = Query.EmployeeLogin(userName, password);
-                UserInterface.DisplayUserOptions("Login successfull. Welcome.");
+                employee = Query.EmployeeLogin(userName, password); 
+                UserInterface.DisplayUserOptions("Login successful. Welcome.");
             }
             catch
             {
@@ -283,7 +283,7 @@ namespace HumaneSociety
             int employeeNumber = int.Parse(UserInterface.GetStringData("employee number", "your"));
             try
             {
-                employee = Query.RetrieveEmployeeUser(email, employeeNumber);
+                employee = Query.RetrieveEmployeeUser(email, employeeNumber); 
             }
             catch
             {
