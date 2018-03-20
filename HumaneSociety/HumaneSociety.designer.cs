@@ -33,9 +33,12 @@ namespace HumaneSociety
     partial void InsertAnimal(Animal instance);
     partial void UpdateAnimal(Animal instance);
     partial void DeleteAnimal(Animal instance);
+<<<<<<< HEAD
     partial void InsertUSState(USState instance);
     partial void UpdateUSState(USState instance);
     partial void DeleteUSState(USState instance);
+=======
+>>>>>>> 46c2ba878cf7eb41b2934168cbe1a6e21a7ef7f6
     partial void InsertAnimalShotJunction(AnimalShotJunction instance);
     partial void UpdateAnimalShotJunction(AnimalShotJunction instance);
     partial void DeleteAnimalShotJunction(AnimalShotJunction instance);
@@ -66,6 +69,12 @@ namespace HumaneSociety
     partial void InsertUserAddress(UserAddress instance);
     partial void UpdateUserAddress(UserAddress instance);
     partial void DeleteUserAddress(UserAddress instance);
+<<<<<<< HEAD
+=======
+    partial void InsertUSState(USState instance);
+    partial void UpdateUSState(USState instance);
+    partial void DeleteUSState(USState instance);
+>>>>>>> 46c2ba878cf7eb41b2934168cbe1a6e21a7ef7f6
     #endregion
 		
 		public HumaneSocietyDataContext() : 
@@ -106,6 +115,7 @@ namespace HumaneSociety
 			}
 		}
 		
+<<<<<<< HEAD
 		public System.Data.Linq.Table<USState> USStates
 		{
 			get
@@ -114,6 +124,8 @@ namespace HumaneSociety
 			}
 		}
 		
+=======
+>>>>>>> 46c2ba878cf7eb41b2934168cbe1a6e21a7ef7f6
 		public System.Data.Linq.Table<AnimalShotJunction> AnimalShotJunctions
 		{
 			get
@@ -193,6 +205,17 @@ namespace HumaneSociety
 				return this.GetTable<UserAddress>();
 			}
 		}
+<<<<<<< HEAD
+=======
+		
+		public System.Data.Linq.Table<USState> USStates
+		{
+			get
+			{
+				return this.GetTable<USState>();
+			}
+		}
+>>>>>>> 46c2ba878cf7eb41b2934168cbe1a6e21a7ef7f6
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Animals")]
@@ -765,6 +788,7 @@ namespace HumaneSociety
 		}
 	}
 	
+<<<<<<< HEAD
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.USStates")]
 	public partial class USState : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -903,6 +927,8 @@ namespace HumaneSociety
 		}
 	}
 	
+=======
+>>>>>>> 46c2ba878cf7eb41b2934168cbe1a6e21a7ef7f6
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.AnimalShotJunctions")]
 	public partial class AnimalShotJunction : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2594,10 +2620,16 @@ namespace HumaneSociety
 		private EntitySet<Client> _Clients;
 		
 		private EntityRef<USState> _USState;
+<<<<<<< HEAD
         internal object usState;
 
         #region Extensibility Method Definitions
         partial void OnLoaded();
+=======
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+>>>>>>> 46c2ba878cf7eb41b2934168cbe1a6e21a7ef7f6
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
     partial void OnIDChanging(int value);
@@ -2802,5 +2834,146 @@ namespace HumaneSociety
 			entity.UserAddress1 = null;
 		}
 	}
+<<<<<<< HEAD
+=======
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.USStates")]
+	public partial class USState : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _name;
+		
+		private string _abbrev;
+		
+		private EntitySet<UserAddress> _UserAddresses;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnnameChanging(string value);
+    partial void OnnameChanged();
+    partial void OnabbrevChanging(string value);
+    partial void OnabbrevChanged();
+    #endregion
+		
+		public USState()
+		{
+			this._UserAddresses = new EntitySet<UserAddress>(new Action<UserAddress>(this.attach_UserAddresses), new Action<UserAddress>(this.detach_UserAddresses));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="VarChar(50)")]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this.OnnameChanging(value);
+					this.SendPropertyChanging();
+					this._name = value;
+					this.SendPropertyChanged("name");
+					this.OnnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_abbrev", DbType="VarChar(10)")]
+		public string abbrev
+		{
+			get
+			{
+				return this._abbrev;
+			}
+			set
+			{
+				if ((this._abbrev != value))
+				{
+					this.OnabbrevChanging(value);
+					this.SendPropertyChanging();
+					this._abbrev = value;
+					this.SendPropertyChanged("abbrev");
+					this.OnabbrevChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="USState_UserAddress", Storage="_UserAddresses", ThisKey="ID", OtherKey="USStates")]
+		public EntitySet<UserAddress> UserAddresses
+		{
+			get
+			{
+				return this._UserAddresses;
+			}
+			set
+			{
+				this._UserAddresses.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_UserAddresses(UserAddress entity)
+		{
+			this.SendPropertyChanging();
+			entity.USState = this;
+		}
+		
+		private void detach_UserAddresses(UserAddress entity)
+		{
+			this.SendPropertyChanging();
+			entity.USState = null;
+		}
+	}
+>>>>>>> 46c2ba878cf7eb41b2934168cbe1a6e21a7ef7f6
 }
 #pragma warning restore 1591
