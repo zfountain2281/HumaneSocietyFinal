@@ -110,6 +110,33 @@ namespace HumaneSociety
             return query;
         }
 
+        internal static void AddUsernameAndPassword(Employee employee)
+        {
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+
+            employee.userName = employee.userName;
+            employee.pass = employee.pass;
+        
+        }
+
+        internal static bool CheckEmployeeUserNameExist(string username)
+        {
+            //needs to search DB for userName match 
+            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
+
+            var query = (from employee in db.Employees
+                         where employee.userName == username
+                         select employee).First();
+            if(query != null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+            
+        }
     }
     }
-}
+
