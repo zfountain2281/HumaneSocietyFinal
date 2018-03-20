@@ -70,7 +70,6 @@ namespace HumaneSociety
 
             var query = (from place in db.Rooms 
                         where place.name == location
-                        //orderby breedName
                         select place.ID).First();
             return query;
             //room db
