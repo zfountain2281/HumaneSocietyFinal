@@ -12,7 +12,7 @@ namespace HumaneSociety.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.6.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -26,8 +26,19 @@ namespace HumaneSociety.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-2C737RL;Initial Catalog=HumaneSociety;Integrated Security=Tru" +
-            "e;Encrypt=False;TrustServerCertificate=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=HumaneSociety;Integrated Secur" +
+            "ity=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True")]
+        public string HumaneSocietyConnectionString1 {
+            get {
+                return ((string)(this["HumaneSocietyConnectionString1"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=HumaneSociety;Integrated Security=True;Encrypt=Fals" +
+            "e;TrustServerCertificate=True")]
         public string HumaneSocietyConnectionString {
             get {
                 return ((string)(this["HumaneSocietyConnectionString"]));
@@ -37,11 +48,10 @@ namespace HumaneSociety.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=HumaneSociety;Integrated Secur" +
-            "ity=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True")]
-        public string HumaneSocietyConnectionString1 {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=HumaneSociety;Integrated Security=True")]
+        public string HumaneSocietyConnectionString2 {
             get {
-                return ((string)(this["HumaneSocietyConnectionString1"]));
+                return ((string)(this["HumaneSocietyConnectionString2"]));
             }
         }
     }
