@@ -23,6 +23,17 @@
       <Association Name="Room_Animal" Member="Room" ThisKey="location" OtherKey="ID" Type="Room" IsForeignKey="true" />
     </Type>
   </Table>
+<<<<<<< HEAD
+  <Table Name="dbo.USStates" Member="USStates">
+    <Type Name="USState">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="abbrev" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="USState_UserAddress" Member="UserAddresses" ThisKey="ID" OtherKey="USStates" Type="UserAddress" />
+    </Type>
+  </Table>
+=======
+>>>>>>> 46c2ba878cf7eb41b2934168cbe1a6e21a7ef7f6
   <Table Name="dbo.AnimalShotJunctions" Member="AnimalShotJunctions">
     <Type Name="AnimalShotJunction">
       <Column Name="Animal_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -120,6 +131,8 @@
       <Association Name="USState_UserAddress" Member="USState" ThisKey="USStates" OtherKey="ID" Type="USState" IsForeignKey="true" />
     </Type>
   </Table>
+<<<<<<< HEAD
+=======
   <Table Name="dbo.USStates" Member="USStates">
     <Type Name="USState">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -128,4 +141,5 @@
       <Association Name="USState_UserAddress" Member="UserAddresses" ThisKey="ID" OtherKey="USStates" Type="UserAddress" />
     </Type>
   </Table>
+>>>>>>> 46c2ba878cf7eb41b2934168cbe1a6e21a7ef7f6
 </Database>
