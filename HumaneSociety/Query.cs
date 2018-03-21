@@ -282,23 +282,7 @@ namespace HumaneSociety
             db.SubmitChanges();
         }
 
-        internal static object GetShots(Animal animal)
-        {//retrives shot information, in junction table 
-            ////use animal, get junction table, get shots table 
-            //for each item in shots, return shot
-            HumaneSocietyDataContext db = new HumaneSocietyDataContext();
-            AnimalShotJunction asj = new AnimalShotJunction();
-            Shot shot = new Shot();
 
-            //select all shots from a given animal
-            //given animalID, find all shot ID's
-            var query = (from entry in db.Animals
-                         where entry.ID == asj.Animal_ID
-                         where asj.Shot_ID == shot.ID
-                         orderby asj.dateRecieved
-                         select shot.name).First();
-            return query;
-        }
 
         internal static void UpdateShot(string v, Animal animal)
         {
